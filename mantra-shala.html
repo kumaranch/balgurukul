@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>दिव्य मंत्र शाला - बाल गुरुकुल</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; background-color: #fffaf0; margin: 0; padding: 0; color: #333; }
+        
+        header { background: linear-gradient(135deg, #ff9933, #ff6600); color: white; text-align: center; padding: 50px 20px; border-bottom: 8px solid #d35400; }
+        header h1 { margin: 0; font-size: 38px; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
+        header p { font-size: 20px; margin-top: 10px; font-style: italic; }
+
+        .container { max-width: 1100px; margin: 40px auto; padding: 0 20px; }
+
+        /* मंत्र कार्ड डिजाइन */
+        .mantra-card { 
+            background: white; border-radius: 25px; margin-bottom: 35px; 
+            display: flex; flex-wrap: wrap; overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid #ffe0b2;
+            transition: 0.3s ease;
+        }
+        .mantra-card:hover { transform: scale(1.02); }
+
+        /* मंत्र वाला हिस्सा (बायीं तरफ) */
+        .mantra-text { 
+            flex: 1; min-width: 320px; padding: 35px; 
+            background-color: #fff3e0; border-right: 3px dashed #ffcc80;
+            display: flex; flex-direction: column; justify-content: center;
+        }
+        .mantra-text h2 { color: #e65100; margin-top: 0; font-size: 26px; display: flex; align-items: center; gap: 10px; }
+        .sanskrit { font-size: 24px; font-weight: bold; color: #b71c1c; line-height: 1.6; margin: 15px 0; border-left: 5px solid #ff9933; padding-left: 15px; }
+
+        /* अर्थ वाला हिस्सा (दायीं तरफ) */
+        .mantra-meaning { flex: 1.3; min-width: 320px; padding: 35px; background-color: white; }
+        .mantra-meaning h3 { color: #d84315; margin-top: 0; font-size: 22px; margin-bottom: 15px; }
+        .meaning-p { font-size: 19px; line-height: 1.8; color: #444; text-align: justify; }
+        .benefit-tag { display: inline-block; background: #e8f5e9; color: #2e7d32; padding: 8px 20px; border-radius: 50px; font-size: 16px; font-weight: bold; margin-top: 20px; border: 1px solid #c8e6c9; }
+
+        .footer-nav { text-align: center; margin: 60px 0; }
+        .home-btn { background: #ff9933; color: white; padding: 15px 40px; border-radius: 50px; text-decoration: none; font-weight: bold; font-size: 18px; box-shadow: 0 5px 15px rgba(255,153,51,0.4); }
+
+        @media (max-width: 768px) {
+            .mantra-card { flex-direction: column; }
+            .mantra-text { border-right: none; border-bottom: 3px dashed #ffcc80; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>🪔 मंत्र शाला 🪔</h1>
+    <p>संस्कार, शक्ति और शांति का मार्ग</p>
+</header>
+
+<div class="container">
+
+    <div class="mantra-card">
+        <div class="mantra-text">
+            <h2>✨ गायत्री मंत्र</h2>
+            <p class="sanskrit">ॐ भूर्भुवः स्वः तत्सवितुर्वरेण्यं भर्गो देवस्य धीमहि धियो यो नः प्रचोदयात्।</p>
+        </div>
+        <div class="mantra-meaning">
+            <h3>📖 मंत्र का अर्थ</h3>
+            <p class="meaning-p">उस प्राणस्वरूप, दुःखनाशक, सुखस्वरूप परमात्मा को हम अपनी अंतरात्मा में धारण करें, वह हमारी बुद्धि को सन्मार्ग की ओर प्रेरित करे।</p>
+            <span class="benefit-tag">💡 लाभ: बुद्धि और एकाग्रता बढ़ती है</span>
+        </div>
+    </div>
+
+    <div class="mantra-card">
+        <div class="mantra-text">
+            <h2>🛡️ महामृत्युंजय मंत्र</h2>
+            <p class="sanskrit">ॐ त्र्यम्बकं यजामहे सुगन्धिं पुष्टिवर्धनम्। उर्वारुकमिव बन्धनान्मृत्योर्मुक्षीय मामृतात्॥</p>
+        </div>
+        <div class="mantra-meaning">
+            <h3>📖 मंत्र का अर्थ</h3>
+            <p class="meaning-p">हम भगवान शिव की पूजा करते हैं। जैसे फल पककर बंधन से मुक्त होता है, वैसे ही हमें भी रोगों और मृत्यु के भय से मुक्ति मिले।</p>
+            <span class="benefit-tag">🩺 लाभ: अच्छी सेहत और लंबी उम्र</span>
+        </div>
+    </div>
+
+    <div class="mantra-card">
+        <div class="mantra-text">
+            <h2>🐘 गणेश मंत्र</h2>
+            <p class="sanskrit">वक्रतुण्ड महाकाय सूर्यकोटि समप्रभ। निर्विघ्नं कुरु मे देव सर्वकार्येषु सर्वदा॥</p>
+        </div>
+        <div class="mantra-meaning">
+            <h3>📖 मंत्र का अर्थ</h3>
+            <p class="meaning-p">करोड़ों सूर्यों के समान तेजस्वी देव, मेरे सभी कार्यों को हमेशा बिना किसी रुकावट के पूरा करने की कृपा करें।</p>
+            <span class="benefit-tag">🚀 लाभ: कार्यों में आने वाली बाधाएं दूर होती हैं</span>
+        </div>
+    </div>
+
+    <div class="mantra-card">
+        <div class="mantra-text">
+            <h2>🕊️ शांति मंत्र</h2>
+            <p class="sanskrit">ॐ असतो मा सद्गमय। तमसो मा ज्योतिर्गमय। मृत्योर्मा अमृतं गमय। ॐ शान्तिः शान्तिः शान्तिः॥</p>
+        </div>
+        <div class="mantra-meaning">
+            <h3>📖 मंत्र का अर्थ</h3>
+            <p class="meaning-p">हे प्रभु, मुझे असत्य से सत्य की ओर, अंधकार से प्रकाश की ओर और मृत्यु से अमरता की ओर ले चलिए।</p>
+            <span class="benefit-tag">🧘 लाभ: मन को असीम शांति मिलती है</span>
+        </div>
+    </div>
+
+    <div class="mantra-card">
+        <div class="mantra-text">
+            <h2>📚 विद्या मंत्र</h2>
+            <p class="sanskrit">ॐ ऐं ह्रीं क्लीं महासरस्वत्यै नमः।</p>
+        </div>
+        <div class="mantra-meaning">
+            <h3>📖 मंत्र का अर्थ</h3>
+            <p class="meaning-p">ज्ञान और कला की देवी माँ सरस्वती को मैं प्रणाम करता हूँ। माँ मुझे बुद्धि और विद्या का दान दें।</p>
+            <span class="benefit-tag">🧠 लाभ: याददाश्त और परीक्षा में सफलता</span>
+        </div>
+    </div>
+
+    <div class="mantra-card">
+        <div class="mantra-text">
+            <h2>🙏 गुरु वंदना</h2>
+            <p class="sanskrit">गुरुर्ब्रह्मा गुरुर्विष्णुः गुरुर्देवो महेश्वरः। गुरुः साक्षात् परब्रह्म तस्मै श्रीगुरवे नमः॥</p>
+        </div>
+        <div class="mantra-meaning">
+            <h3>📖 मंत्र का अर्थ</h3>
+            <p class="meaning-p">गुरु ही ब्रह्मा, विष्णु और शिव हैं। गुरु ही साक्षात् परमेश्वर हैं, ऐसे गुरुदेव को मेरा नमस्कार है।</p>
+            <span class="benefit-tag">🌱 लाभ: जीवन में सही दिशा और संस्कार</span>
+        </div>
+    </div>
+
+    <div class="mantra-card">
+        <div class="mantra-text">
+            <h2>🚩 हनुमान मंत्र</h2>
+            <p class="sanskrit">मनोजवं मारुततुल्यवेगं जितेन्द्रियं बुद्धिमतां वरिष्ठम्। श्रीरामदूतं शरणं प्रपद्ये॥</p>
+        </div>
+        <div class="mantra-meaning">
+            <h3>📖 मंत्र का अर्थ</h3>
+            <p class="meaning-p">मन जैसी गति वाले, इन्द्रियों को जीतने वाले और बुद्धिमानों में श्रेष्ठ श्री रामदूत हनुमान की मैं शरण लेता हूँ।</p>
+            <span class="benefit-tag">💪 लाभ: डर दूर होता है और शक्ति मिलती है</span>
+        </div>
+    </div>
+
+    <div class="mantra-card">
+        <div class="mantra-text">
+            <h2>🥣 भोजन मंत्र</h2>
+            <p class="sanskrit">ब्रह्मार्पणं ब्रह्म हविर्ब्रह्माग्नौ ब्रह्मणा हुतम्। ब्रह्मैव तेन गन्तव्यं ब्रह्मकर्मसमाधिना॥</p>
+        </div>
+        <div class="mantra-meaning">
+            <h3>📖 मंत्र का अर्थ</h3>
+            <p class="meaning-p">यह भोजन और इसे देने वाला ईश्वर ही है। ईश्वर को याद करके भोजन करने से वह प्रसाद बन जाता है।</p>
+            <span class="benefit-tag">🍎 लाभ: भोजन शरीर को अच्छी ऊर्जा देता है</span>
+        </div>
+    </div>
+
+    <div class="mantra-card">
+        <div class="mantra-text">
+            <h2>☀️ सुबह का मंत्र</h2>
+            <p class="sanskrit">कराग्रे वसते लक्ष्मीः करमध्ये सरस्वती। करमूले तु गोविन्दः प्रभाते करदर्शनम्॥</p>
+        </div>
+        <div class="mantra-meaning">
+            <h3>📖 मंत्र का अर्थ</h3>
+            <p class="meaning-p">हाथ के आगे लक्ष्मी, बीच में सरस्वती और मूल में विष्णु का वास है। सुबह उठकर हाथों को देखना शुभ है।</p>
+            <span class="benefit-tag">🌅 लाभ: पूरा दिन शुभ और सकारात्मक बीतता है</span>
+        </div>
+    </div>
+
+    <div class="mantra-card">
+        <div class="mantra-text">
+            <h2>🕯️ दीप मंत्र</h2>
+            <p class="sanskrit">शुभं करोति कल्याणं आरोग्यं धनसंपदा। शत्रुबुद्धिविनाशाय दीपज्योतिर्नमोऽस्तु ते॥</p>
+        </div>
+        <div class="mantra-meaning">
+            <h3>📖 मंत्र का अर्थ</h3>
+            <p class="meaning-p">कल्याण और आरोग्य देने वाली दीपक की लौ को मेरा नमस्कार है, जो अज्ञान के अंधेरे को दूर करती है।</p>
+            <span class="benefit-tag">🌟 लाभ: घर में सुख-समृद्धि आती है</span>
+        </div>
+    </div>
+
+    <div class="mantra-card">
+        <div class="mantra-text">
+            <h2>🕉️ शिव पंचाक्षर</h2>
+            <p class="sanskrit">ॐ नमः शिवाय।</p>
+        </div>
+        <div class="mantra-meaning">
+            <h3>📖 मंत्र का अर्थ</h3>
+            <p class="meaning-p">मैं उस कल्याणकारी और सुख देने वाले भगवान शिव को बारंबार नमन करता हूँ।</p>
+            <span class="benefit-tag">🧘 लाभ: मानसिक तनाव और गुस्सा कम होता है</span>
+        </div>
+    </div>
+
+    <div class="mantra-card">
+        <div class="mantra-text">
+            <h2>🌊 विष्णु मंत्र</h2>
+            <p class="sanskrit">मङ्गलम् भगवान विष्णुः, मङ्गलम् गरुड़ध्वजः। मङ्गलम् पुण्डरीकाक्षः, मङ्गलाय तनो हरिः॥</p>
+        </div>
+        <div class="mantra-meaning">
+            <h3>📖 मंत्र का अर्थ</h3>
+            <p class="meaning-p">भगवान विष्णु मंगलकारी हैं। वे कमल जैसे नयनों वाले प्रभु हमारा कल्याण करें।</p>
+            <span class="benefit-tag">✅ लाभ: हर काम में मंगल और शुभ फल</span>
+        </div>
+    </div>
+
+    <div class="mantra-card">
+        <div class="mantra-text">
+            <h2>💰 लक्ष्मी मंत्र</h2>
+            <p class="sanskrit">ॐ श्रीं ह्रीं श्रीं कमले कमलालये प्रसीद प्रसीद महालक्ष्म्यै नमः।</p>
+        </div>
+        <div class="mantra-meaning">
+            <h3>📖 मंत्र का अर्थ</h3>
+            <p class="meaning-p">हे माँ लक्ष्मी, आप मुझ पर प्रसन्न हों और अपनी कृपा दृष्टि सदा मुझ पर बनाए रखें।</p>
+            <span class="benefit-tag">💎 लाभ: धन और ऐश्वर्य की प्राप्ति</span>
+        </div>
+    </div>
+
+    <div class="mantra-card">
+        <div class="mantra-text">
+            <h2>🏺 कृष्ण मंत्र</h2>
+            <p class="sanskrit">हरे कृष्ण हरे कृष्ण, कृष्ण कृष्ण हरे हरे। हरे राम हरे राम, राम राम हरे हरे॥</p>
+        </div>
+        <div class="mantra-meaning">
+            <h3>📖 मंत्र का अर्थ</h3>
+            <p class="meaning-p">यह महामंत्र ईश्वर के प्रेम और आनंद को जगाने वाला है, जो मन के विकारों को दूर करता है।</p>
+            <span class="benefit-tag">💖 लाभ: मन में आनंद और प्रेम बढ़ता है</span>
+        </div>
+    </div>
+
+    <div class="mantra-card">
+        <div class="mantra-text">
+            <h2>🌞 सूर्य नमस्कार</h2>
+            <p class="sanskrit">ॐ सूर्याय नमः।</p>
+        </div>
+        <div class="mantra-meaning">
+            <h3>📖 मंत्र का अर्थ</h3>
+            <p class="meaning-p">संसार को प्रकाश और जीवन देने वाले सूर्य देव को मैं श्रद्धापूर्वक नमन करता हूँ।</p>
+            <span class="benefit-tag">⚡ लाभ: शरीर में तेज और ऊर्जा आती है</span>
+        </div>
+    </div>
+
+    <div class="mantra-card">
+        <div class="mantra-text">
+            <h2>🦁 दुर्गा मंत्र</h2>
+            <p class="sanskrit">सर्वमङ्गलमाङ्गल्ये शिवे सर्वार्थसाधिके। शरण्ये त्र्यम्बके गौरि नारायणि नमोऽस्तु ते॥</p>
+        </div>
+        <div class="mantra-meaning">
+            <h3>📖 मंत्र का अर्थ</h3>
+            <p class="meaning-p">हे माँ, आप सभी मंगलों में मंगल रूप हैं और सभी कार्यों को सिद्ध करने वाली हैं।</p>
+            <span class="benefit-tag">🛡️ लाभ: हर प्रकार के संकट से रक्षा</span>
+        </div>
+    </div>
+
+    <div class="mantra-card">
+        <div class="mantra-text">
+            <h2>🙏 क्षमा याचना</h2>
+            <p class="sanskrit">करचरण कृतं वा कायजं कर्मजं वा। सर्वमेतत्क्षमस्व जय जय करुणाब्धे महादेव शम्भो॥</p>
+        </div>
+        <div class="mantra-meaning">
+            <h3>📖 मंत्र का अर्थ</h3>
+            <p class="meaning-p">हे महादेव, मेरे हाथों, पैरों या मन से जो भी गलतियाँ हुई हों, उन्हें अपनी करुणा से क्षमा करें।</p>
+            <span class="benefit-tag">😌 लाभ: मन का बोझ और ग्लानि कम होती है</span>
+        </div>
+    </div>
+
+    <div class="mantra-card">
+        <div class="mantra-text">
+            <h2>🌍 स्वस्ति वाचन</h2>
+            <p class="sanskrit">ॐ स्वस्ति न इन्द्रो वृद्धश्रवाः। स्वस्ति नः पूषा विश्ववेदाः॥</p>
+        </div>
+        <div class="mantra-meaning">
+            <h3>📖 मंत्र का अर्थ</h3>
+            <p class="meaning-p">इन्द्र देव और पूषा देव हमारा कल्याण करें। चारों दिशाओं से हमारे लिए मंगल ही मंगल हो।</p>
+            <span class="benefit-tag">🌈 लाभ: वातावरण में सकारात्मकता आती है</span>
+        </div>
+    </div>
+
+    <div class="mantra-card">
+        <div class="mantra-text">
+            <h2>👪 समर्पण मंत्र</h2>
+            <p class="sanskrit">त्वमेव माता च पिता त्वमेव। त्वमेव बन्धुश्च सखा त्वमेव॥</p>
+        </div>
+        <div class="mantra-meaning">
+            <h3>📖 मंत्र का अर्थ</h3>
+            <p class="meaning-p">हे ईश्वर, आप ही मेरे माता, पिता, भाई और मित्र हैं। आप ही मेरा सब कुछ हैं।</p>
+            <span class="benefit-tag">💞 लाभ: ईश्वर से गहरा जुड़ाव महसूस होता है</span>
+        </div>
+    </div>
+
+    <div class="mantra-card">
+        <div class="mantra-text">
+            <h2>♾️ पूर्ण मंत्र</h2>
+            <p class="sanskrit">ॐ पूर्णमदः पूर्णमिदं पूर्णात्पूर्णमुदच्यते। पूर्णस्य पूर्णमादाय पूर्णमेवावशिष्यते॥</p>
+        </div>
+        <div class="mantra-meaning">
+            <h3>📖 मंत्र का अर्थ</h3>
+            <p class="meaning-p">वह भी पूर्ण है, यह भी पूर्ण है। पूर्ण से पूर्ण ही निकलता है, फिर भी वह सदा पूर्ण ही रहता है।</p>
+            <span class="benefit-tag">🌌 लाभ: संतोष और पूर्णता का अहसास</span>
+        </div>
+    </div>
+
+</div>
+
+<div class="footer-nav">
+    <a href="index.html" class="home-btn">🏠 वापस होम पेज पर जाएँ</a>
+</div>
+
+</body>
+</html>
