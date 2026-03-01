@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>बाल गुरुकुल - ज्ञान परीक्षा</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Mukta:wght@400;700&family=Great+Vibes&display=swap');
+        body { font-family: 'Mukta', sans-serif; background-color: #FFFDD0; }
+        .quiz-card { display: none; }
+        .active { display: block; }
+        .correct { background-color: #22c55e !important; color: white !important; border-color: #16a34a !important; }
+        .wrong { background-color: #ef4444 !important; color: white !important; border-color: #dc2626 !important; }
+        #certificateCanvas { max-width: 100%; height: auto; border: 5px solid #d4af37; border-radius: 10px; display: none; margin: 0 auto; }
+    </style>
+</head>
+<body class="p-4 md:p-10">
+
+    <div class="max-w-3xl mx-auto bg-white p-6 md:p-10 rounded-3xl shadow-2xl border-t-8 border-orange-500">
+        
+        <div id="setup-screen" class="active text-center">
+            <h1 class="text-4xl font-bold text-orange-600 mb-4">🚩 बाल गुरुकुल परीक्षा 🚩</h1>
+            <p class="text-gray-600 mb-8 font-bold">अपना नाम लिखें और आपका असली सर्टिफिकेट तैयार हो जाएगा</p>
+            <input type="text" id="userName" placeholder="यहाँ अपना पूरा नाम लिखें" class="w-full p-4 border-2 border-orange-200 rounded-2xl mb-6 text-center text-xl focus:outline-none focus:border-orange-500">
+            <button onclick="startQuiz()" class="bg-orange-500 text-white px-12 py-4 rounded-full font-bold text-2xl hover:bg-orange-600 transition-all shadow-lg">शुरू करें ➔</button>
+        </div>
+
+        <div id="quiz-screen" class="quiz-card">
+            <div class="flex justify-between items-center mb-6">
+                <span id="progress-text" class="text-orange-600 font-bold text-xl">प्रश्न 1/20</span>
+            </div>
+            <div id="question-container">
+                <h2 id="question-text" class="text-2xl font-bold text-gray-800 mb-8">सवाल लोड हो रहा है...</h2>
+                <div id="options-container" class="grid grid-cols-1 gap-4"></div>
+            </div>
+        </div>
+
+        <div id="result-screen" class="quiz-card text-center">
+            <h2 class="text-3xl font-bold text-green-600 mb-4">बधाई हो! आपका सर्टिफिकेट तैयार है</h2>
+            <p id="final-score" class="text-xl mb-6"></p>
+            
+            <canvas id="certificateCanvas"></canvas>
+            
+            <button onclick="downloadCert()" class="mt-8 bg-blue-600 text-white px-10 py-4 rounded-xl font-bold text-xl hover:bg-black transition-all">📥 सर्टिफिकेट डाउनलोड करें</button>
+        </div>
+
+    </div>
+
+    <script>
+        // ... (पुराने 20 सवाल यहाँ रहेंगे) ...
+        const questions = [
+            { q: "शून्य (0) का आविष्कार किस देश में हुआ था?", o: ["मिस्र", "यूनान", "भारत", "चीन"], a: 2 },
+            { q: "भगवान राम के गुरु कौन थे?", o: ["द्रोणाचार्य", "वशिष्ठ", "परशुराम", "सांदीपनि"], a: 1 },
+            { q: "हनुमान जी के पास कौन सी अद्भुत शक्ति थी?", o: ["अष्ट सिद्धि", "नवनिधि", "दोनों", "कोई नहीं"], a: 2 },
+            { q: "गायत्री मंत्र किस वेद से लिया गया है?", o: ["ऋग्वेद", "सामवेद", "यजुर्वेद", "अथर्ववेद"], a: 0 },
+            { q: "महाभारत का युद्ध कितने दिनों तक चला था?", o: ["10 दिन", "15 दिन", "18 दिन", "21 दिन"], a: 2 },
+            { q: "प्लास्टिक सर्जरी के जनक किसे कहा जाता है?", o: ["चरक", "सुश्रुत", "आर्यभट्ट", "कणाद"], a: 1 },
+            { q: "महाराणा प्रताप के घोड़े का नाम क्या था?", o: ["बादल", "पवन", "चेतक", "वीर"], a: 2 },
+            { q: "सौरमंडल में ग्रहों की संख्या कितनी है?", o: ["7", "8", "9", "10"], a: 1 },
+            { q: "रामायण के रचयिता कौन हैं?", o: ["तुलसीदास", "वाल्मीकि", "वेदव्यास", "कबीर"], a: 1 },
+            { q: "विमान शास्त्र की रचना किसने की थी?", o: ["अगस्त्य ऋषि", "भारद्वाज ऋषि", "धन्वंतरि", "कणाद"], a: 1 },
+            { q: "छत्रपति शिवाजी महाराज की माता का नाम क्या था?", o: ["जीजाबाई", "लक्ष्मीबाई", "अहिल्याबाई", "पुतलीबाई"], a: 0 },
+            { q: "अयोध्या किस नदी के किनारे बसी है?", o: ["गंगा", "यमुना", "सरयू", "नर्मदा"], a: 2 },
+            { q: "पंचतंत्र की कहानियाँ किसने लिखी?", o: ["विष्णु शर्मा", "कालिदास", "सूरदास", "रहीम"], a: 0 },
+            { q: "भारत का राष्ट्रीय पक्षी कौन सा है?", o: ["तोता", "कबूतर", "मोर", "हंस"], a: 2 },
+            { q: "योग दर्शन के प्रवर्तक कौन हैं?", o: ["गौतम", "पतंजलि", "कणाद", "कपिल"], a: 1 },
+            { q: "आयुर्वेद का ज्ञान देने वाले देवता कौन हैं?", o: ["इंद्र", "अग्नि", "धन्वंतरि", "वायु"], a: 2 },
+            { q: "अभिमन्यु ने चक्रव्यूह भेदना कहाँ सीखा था?", o: ["युद्ध में", "माता के गर्भ में", "गुरु के आश्रम में", "खेल में"], a: 1 },
+            { q: "लव और कुश ने वाल्मीकि जी से क्या सीखा?", o: ["संगीत", "अस्त्र-शस्त्र और रामायण", "कृषि", "व्यापार"], a: 1 },
+            { q: "विश्व का सबसे बड़ा महाकाव्य कौन सा है?", o: ["रामायण", "महाभारत", "इलियाड", "ओडिसी"], a: 1 },
+            { q: "सत्यमेव जयते का अर्थ क्या है?", o: ["सच की जीत", "झूठ की जीत", "सबकी जीत", "धर्म की जीत"], a: 0 }
+        ];
+
+        let currentIdx = 0; let score = 0; let name = "";
+
+        function startQuiz() {
+            name = document.getElementById('userName').value.trim();
+            if(!name) return alert("नाम लिखें!");
+            document.getElementById('setup-screen').classList.remove('active');
+            document.getElementById('quiz-screen').classList.add('active');
+            showQuestion();
+        }
+
+        function showQuestion() {
+            const q = questions[currentIdx];
+            document.getElementById('progress-text').innerText = `प्रश्न ${currentIdx + 1}/20`;
+            document.getElementById('question-text').innerText = q.q;
+            const container = document.getElementById('options-container');
+            container.innerHTML = "";
+            q.o.forEach((opt, i) => {
+                const btn = document.createElement('button');
+                btn.className = "p-4 text-left border-2 rounded-xl font-bold bg-white w-full";
+                btn.innerText = opt;
+                btn.onclick = () => {
+                    const all = container.querySelectorAll('button');
+                    all.forEach(b => b.disabled = true);
+                    if(i === q.a) { btn.classList.add('correct'); btn.innerText += " ✅"; score++; }
+                    else { btn.classList.add('wrong'); btn.innerText += " ❌"; all[q.a].classList.add('correct'); }
+                    setTimeout(() => {
+                        currentIdx++;
+                        if(currentIdx < questions.length) showQuestion();
+                        else finish();
+                    }, 1500);
+                };
+                container.appendChild(btn);
+            });
+        }
+
+        function finish() {
+            document.getElementById('quiz-screen').classList.remove('active');
+            document.getElementById('result-screen').classList.add('active');
+            document.getElementById('final-score').innerText = `आपने 20 में से ${score} अंक प्राप्त किए।`;
+            generateCertificate();
+        }
+
+        function generateCertificate() {
+            const canvas = document.getElementById('certificateCanvas');
+            const ctx = canvas.getContext('2d');
+            const img = new Image();
+            img.src = 'certificate.jpg'; // यह आपकी फाइल का इस्तेमाल करेगा
+
+            img.onload = function() {
+                canvas.width = img.width;
+                canvas.height = img.height;
+                ctx.drawImage(img, 0, 0);
+                
+                // नाम लिखने की सेटिंग्स (इसे अपनी इमेज के अनुसार बदलें)
+                ctx.font = "bold 80px 'Great Vibes', cursive";
+                ctx.fillStyle = "#1e3a8a"; // गहरा नीला रंग
+                ctx.textAlign = "center";
+                
+                // नाम को इमेज के बीच में लिखना (Line के ऊपर)
+                ctx.fillText(name.toUpperCase(), canvas.width / 2, canvas.height / 2 + 20); 
+                canvas.style.display = "block";
+            };
+        }
+
+        function downloadCert() {
+            const canvas = document.getElementById('certificateCanvas');
+            const link = document.createElement('a');
+            link.download = `${name}_Bal_Gurukul.png`;
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+        }
+    </script>
+</body>
+</html>
