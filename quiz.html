@@ -21,7 +21,7 @@
         <div id="setup-screen" class="active text-center">
             <h1 class="text-4xl font-bold text-orange-600 mb-4">🚩 बाल गुरुकुल परीक्षा 🚩</h1>
             <p class="text-gray-600 mb-8 font-bold">अपना नाम लिखें और परीक्षा शुरू करें</p>
-            <input type="text" id="userName" placeholder="यहाँ अपना पूरा नाम लिखें" class="w-full p-4 border-2 border-orange-200 rounded-2xl mb-6 text-center text-xl focus:outline-none focus:border-orange-500">
+            <input type="text" id="userName" placeholder="यहाँ अपना पूरा नाम लिखें" class="w-full p-4 border-2 border-orange-200 rounded-2xl mb-6 text-center text-xl focus:outline-none focus:border-orange-500 shadow-sm">
             <button onclick="startQuiz()" class="bg-orange-500 text-white px-12 py-4 rounded-full font-bold text-2xl hover:bg-orange-600 transition-all shadow-lg">शुरू करें ➔</button>
         </div>
 
@@ -35,20 +35,22 @@
 
         <div id="result-screen" class="quiz-card text-center">
             <div class="mb-6"><span class="text-6xl">🏆</span></div>
-            <h2 class="text-4xl font-bold text-green-600 mb-4">शानदार!</h2>
+            <h2 class="text-4xl font-bold text-green-600 mb-4">शानदार प्रदर्शन!</h2>
             <p id="final-score" class="text-2xl text-gray-700 mb-8 font-bold"></p>
             <div class="bg-green-50 p-6 rounded-2xl border-2 border-green-100 mb-8">
-                <p class="text-green-800 font-bold mb-2 text-lg">परीक्षा सफल रही!</p>
-                <p class="text-gray-600">नीचे दिए बटन पर क्लिक करके गुरुजी से अपना सर्टिफिकेट माँगें।</p>
+                <p class="text-green-800 font-bold mb-2 text-lg">आप परीक्षा में उत्तीर्ण हुए!</p>
+                <p class="text-gray-600 font-bold">अपना सर्टिफिकेट पाने के लिए नीचे दिए गए बटन को दबाएँ।</p>
             </div>
-            <button onclick="sendToWhatsApp()" class="bg-[#25D366] text-white px-10 py-4 rounded-2xl font-bold text-xl hover:bg-black shadow-xl transition-all flex items-center justify-center mx-auto">
-                💬 सर्टिफिकेट प्राप्त करें
-            </button>
+            
+            <a href="https://wa.link/yly0ne" target="_blank" class="inline-block bg-[#25D366] text-white px-10 py-4 rounded-2xl font-bold text-xl hover:bg-black shadow-xl transition-all scale-110">
+                 सर्टिफिकेट प्राप्त करें 📥
+            </a>
         </div>
 
     </div>
 
     <script>
+        // 20 सवालों का डेटा
         const questions = [
             { q: "शून्य (0) का आविष्कार किस देश में हुआ था?", o: ["मिस्र", "यूनान", "भारत", "चीन"], a: 2 },
             { q: "भगवान राम के गुरु कौन थे?", o: ["द्रोणाचार्य", "वशिष्ठ", "परशुराम", "सांदीपनि"], a: 1 },
@@ -58,7 +60,7 @@
             { q: "प्लास्टिक सर्जरी के जनक किसे कहा जाता है?", o: ["चरक", "सुश्रुत", "आर्यभट्ट", "कणाद"], a: 1 },
             { q: "महाराणा प्रताप के घोड़े का नाम क्या था?", o: ["बादल", "पवन", "चेतक", "वीर"], a: 2 },
             { q: "सौरमंडल में ग्रहों की संख्या कितनी है?", o: ["7", "8", "9", "10"], a: 1 },
-            { q: "रामायण के रचयिता कौन हैं?", o: ["तुलसीदास", "वाल्मीकि", "वेदव्यास", "कबीर"], a: 1 },
+            { q: "रामायण के रचयिता कौन हैं?", o: ["तुलसीदास", "वाल्मीकि", "वेदv व्यास", "कबीर"], a: 1 },
             { q: "विमान शास्त्र की रचना किसने की थी?", o: ["अगस्त्य ऋषि", "भारद्वाज ऋषि", "धन्वंतरि", "कणाद"], a: 1 },
             { q: "छत्रपति शिवाजी महाराज की माता का नाम क्या था?", o: ["जीजाबाई", "लक्ष्मीबाई", "अहिल्याबाई", "पुतलीबाई"], a: 0 },
             { q: "अयोध्या किस नदी के किनारे बसी है?", o: ["गंगा", "यमुना", "सरयू", "नर्मदा"], a: 2 },
@@ -67,7 +69,7 @@
             { q: "योग दर्शन के प्रवर्तक कौन हैं?", o: ["गौतम", "पतंजलि", "कणाद", "कपिल"], a: 1 },
             { q: "आयुर्वेद का ज्ञान देने वाले देवता कौन हैं?", o: ["इंद्र", "अग्नि", "धन्वंतरि", "वायु"], a: 2 },
             { q: "अभिमन्यु ने चक्रव्यूह भेदना कहाँ सीखा था?", o: ["युद्ध में", "माता के गर्भ में", "गुरु के आश्रम में", "खेल में"], a: 1 },
-            { q: "लव और कुश ने वाल्मीकि जी से क्या सीखा?", o: ["संगीत", "अस्त्र-शस्त्र और रामायण", "कृषि", "व्यापर"], a: 1 },
+            { q: "लव और कुश ने वाल्मीकि जी से क्या सीखा?", o: ["संगीत", "अस्त्र-शस्त्र और रामायण", "कृषि", "व्यापार"], a: 1 },
             { q: "विश्व का सबसे बड़ा महाकाव्य कौन सा है?", o: ["रामायण", "महाभारत", "इलियाड", "ओडिसी"], a: 1 },
             { q: "सत्यमेव जयते का अर्थ क्या है?", o: ["सच की जीत", "झूठ की जीत", "सबकी जीत", "धर्म की जीत"], a: 0 }
         ];
@@ -90,7 +92,7 @@
             container.innerHTML = "";
             q.o.forEach((opt, i) => {
                 const btn = document.createElement('button');
-                btn.className = "p-4 text-left border-2 rounded-xl font-bold bg-white w-full shadow-sm";
+                btn.className = "p-4 text-left border-2 rounded-xl font-bold bg-white w-full shadow-sm hover:border-orange-400";
                 btn.innerText = opt;
                 btn.onclick = () => {
                     const all = container.querySelectorAll('button');
@@ -111,14 +113,6 @@
             document.getElementById('quiz-screen').classList.remove('active');
             document.getElementById('result-screen').classList.add('active');
             document.getElementById('final-score').innerText = `${name}, आपने 20 में से ${score} अंक प्राप्त किए!`;
-        }
-
-        function sendToWhatsApp() {
-            const message = `नमस्ते गुरुजी! मेरा नाम ${name} है। मैंने बाल गुरुकुल की परीक्षा में 20 में से ${score} अंक प्राप्त किए हैं। कृपया मुझे मेरा सर्टिफिकेट भेजने की कृपा करें।`;
-            const encodedMessage = encodeURIComponent(message);
-            const whatsappURL = `https://wa.me/91XXXXXXXXXX?text=${encodedMessage}`; 
-            // ऊपर XXXXXXXXXX की जगह अपना नंबर डालें या अपनी wa.link का उपयोग करें
-            window.open("https://wa.link/qsyod7", "_blank");
         }
     </script>
 </body>
